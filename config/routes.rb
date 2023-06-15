@@ -27,6 +27,9 @@ Rails.application.routes.draw do
         get :me
         post :create
       end
+      
+      resources :posts
+    
     end
   end
 end
