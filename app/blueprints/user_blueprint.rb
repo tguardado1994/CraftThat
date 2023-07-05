@@ -12,7 +12,7 @@ class UserBlueprint < Blueprinter::Base
   end
 
   view :normal do
-    fields :first_name, :last_name, :name, :email, :phone, :uernname
+    fields :email, :username
   end
 
   view :profile do

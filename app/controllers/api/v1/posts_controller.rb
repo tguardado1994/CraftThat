@@ -7,7 +7,7 @@ module Api
                 result = Posts::Operations.new_post(params, @current_user)
                 render_error(errors: result.errors.all, status: 400) and return unless result.success?
                 payload = {
-                    blog: BlogBlueprint.render_as_hash(result.payload),
+                    post: PostBlueprint.render_as_hash(result.payload),
                     status: 201
                 }
                 render_success(payload: payload)
