@@ -23,10 +23,10 @@ module Api
             end
 
             def show
-                posts = Post.find(params[:id])
+                post = Post.find(params[:id])
 
                 payload ={
-                    blog: PostBlueprint.render_as_hash(post),
+                    post: PostBlueprint.render_as_hash(post),
                     status: 200
                 }
                 render_success(payload: payload)
@@ -42,7 +42,7 @@ module Api
                 render_success(payload: payload)
             end
 
-            def destory
+            def destroy
                 post = Post.find(params[:id])
 
                 post.destroy
