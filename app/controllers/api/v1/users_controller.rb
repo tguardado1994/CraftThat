@@ -36,7 +36,7 @@ module Api
       end
 
       def me
-        render_success(payload: UserBlueprint.render_as_hash(@current_user), status: 200)
+        render_success(payload: {user: UserBlueprint.render_as_hash(@current_user)}, status: 200)
       end
 
       def validate_invitation
