@@ -48,6 +48,10 @@ module Api
                 post.destroy
                 render_success(payload: "Post has been deleted", status: 200)
             end
+
+            def home
+                render_success(payload: {suggested: PostBlueprint.render_as_hash(Post.order("RANDOM()").limit(20)), tags: Tag.all})
+            end
             
         
         end

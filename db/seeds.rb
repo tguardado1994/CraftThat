@@ -36,7 +36,13 @@ placeholder_images = [
     )
   
     # Attach random tags to the post (0 to 6 tags)
-    post.tags = Tag.all.sample(rand(0..6))
+    post.tags = Tag.all.sample(rand(0..3))
     post.save
 end
   
+#give all users a username
+User.all.each do |user|
+    username = "#{user.first_name.downcase}.#{user.last_name.downcase}"
+    username = "#{username}.#{rand(100)}" while User.exists?(username: username)
+    user.update(username: username)
+  end

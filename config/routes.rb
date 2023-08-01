@@ -27,7 +27,11 @@ Rails.application.routes.draw do
         get :me
         post :create
       end
-      
+     
+      namespace :posts do
+        get :home
+      end
+     
       resources :posts
     
     end
